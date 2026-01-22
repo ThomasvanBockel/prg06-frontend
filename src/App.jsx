@@ -21,18 +21,15 @@ function App() {
                     path: "/plants/:id",
                     element: <PlantDetails/>,
                 },
+                {
+                    path: "/plants/edit/:id",
+                    element: <PlantEdit/>,
+                },
+
                 /*
                 {
                     path: "/create",
                     element: <CreateProduct/>,
-                },
-                {
-                    path: "/plants/delete/:id",
-                    element: <Delete/>,
-                },
-                {
-                    path: "/products/edit/:id",
-                    element: <ProductEdit/>,
                 },
 */
             ],
