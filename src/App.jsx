@@ -3,6 +3,7 @@ import Layout from "./Layout.jsx";
 import Home from "./Home.jsx";
 import PlantDetails from "./PlantDetails.jsx";
 import PlantEdit from "./PlantEdit.jsx";
+import Create from "./Create.jsx";
 
 function App() {
 
@@ -27,11 +28,11 @@ function App() {
                     element: <PlantEdit/>,
                 },
 
-                /*
                 {
                     path: "/create",
-                    element: <CreateProduct/>,
+                    element: <Create/>,
                 },
+                /*
 */
             ],
         },

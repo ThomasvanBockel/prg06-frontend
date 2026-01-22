@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router";
+import {Link, Outlet} from "react-router";
 
 function Layout() {
     return (
@@ -10,7 +10,7 @@ function Layout() {
                 </nav>
             </header>
             <main>
-                <Outlet />
+                <Outlet/>
             </main>
         </div>
     );
