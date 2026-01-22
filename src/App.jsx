@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from "react-router";
 import Layout from "./Layout.jsx";
 import Home from "./Home.jsx";
 import PlantDetails from "./PlantDetails.jsx";
+import PlantEdit from "./PlantEdit.jsx";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
                     element: <Home/>,
                 },
                 {
-                    path: "/lants",
+                    path: "/plants",
                     element: <Home/>,
                 },
                 {

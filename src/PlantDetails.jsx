@@ -49,13 +49,13 @@ function PlantDetails() {
 
     return (
         <>
-            <h1>{item.title ?? "niks"}</h1>
+            <h1>{item.name ?? "niks"}</h1>
             <p>{item.description ?? "niks"}</p>
             <p>{item.type ?? "geen type"}</p>
 
             <button onClick={handleDelete}>Delete</button>
 
-            <Link to={`/plants/delete/${item.id}`}>edit</Link>
+            <Link to={`/plants/edit/${item.id}`}>edit</Link>
 
         </>
     );
