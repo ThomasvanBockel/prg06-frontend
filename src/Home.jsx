@@ -1,13 +1,23 @@
 import {useEffect, useState} from 'react'
 import Card from './Card.jsx'
+import Limit from './Limit.jsx'
+
 
 function Home() {
     const [items, setItems] = useState([]);
+    let limitstring = ''
 
+    const handleLimitSubmit = (data) => {
+        console.log(data.limit);
+        let limit = data.limit
+        limitstring = `?limit=${limit}`
+        loadSpots()
+    };
 
     const loadSpots = async () => {
         try {
-            const result = await fetch('http://145.24.237.40:8002/plants', {
+
+            const result = await fetch(`http://145.24.237.40:8002/plants${limitstring}`, {
                 headers: {
                     'Accept': 'application/json'
                 }
@@ -31,8 +41,9 @@ function Home() {
 
     return (
         <>
-            {items.map((item) => (
+            <Limit onLimitSubmit={handleLimitSubmit}/>
 
+            {items.map((item) => (
                 <Card
                     key={item.id}
                     id={item.id}
