@@ -1,6 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router";
 import Layout from "./Layout.jsx";
 import Home from "./Home.jsx";
+import PlantDetails from "./PlantDetails.jsx";
 
 function App() {
 
@@ -13,11 +14,11 @@ function App() {
                     element: <Home/>,
                 },
                 {
-                    path: "/Products",
+                    path: "/lants",
                     element: <Home/>,
                 },
                 {
-                    path: "/products/:id",
+                    path: "/plants/:id",
                     element: <PlantDetails/>,
                 },
                 /*
@@ -26,7 +27,7 @@ function App() {
                     element: <CreateProduct/>,
                 },
                 {
-                    path: "/products/delete/:id",
+                    path: "/plants/delete/:id",
                     element: <Delete/>,
                 },
                 {

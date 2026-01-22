@@ -32,7 +32,13 @@ function PlantDetails() {
 
     return (
         <>
+            <h1>{item.title ?? "niks"}</h1>
+            <p>{item.description ?? "niks"}</p>
+            <p>{item.type ?? "geen type"}</p>
 
+            <Link to={`/plants/delete/${item.id}`}>Delete</Link>
+
+            <Link to={`/plants/edit/${item.id}`}>Edit</Link>
         </>
     );
 }
