@@ -1,23 +1,29 @@
 import {useEffect, useState} from 'react'
 import Card from './Card.jsx'
 import Limit from './Limit.jsx'
+import Pagination from './Pagination.jsx'
 
 
 function Home() {
     const [items, setItems] = useState([]);
-    let limitstring = ''
+    const [pagination, setPagination] = useState(null);
+    const [query, setQuery] = useState(`http://145.24.237.40:8002/plants`);
+
 
     const handleLimitSubmit = (data) => {
         console.log(data.limit);
-        let limit = data.limit
-        limitstring = `?limit=${limit}`
-        loadSpots()
+        setQuery(`http://145.24.237.40:8002/plants?limit=${data.limit}`);
     };
+
+    const handleNewPage = (url) => {
+        setQuery(url);
+    };
+
 
     const loadSpots = async () => {
         try {
-
-            const result = await fetch(`http://145.24.237.40:8002/plants${limitstring}`, {
+            console.log({query})
+            const result = await fetch(query, {
                 headers: {
                     'Accept': 'application/json'
                 }
@@ -28,8 +34,12 @@ function Home() {
                 throw Error(data.message)
             }
             setItems(data.items);
+            setPagination(data.pagination)
+            console.log(pagination._links?.next)
             console.log(data)
 
+            console.log("NEXT TYPE:", typeof pagination._links?.next);
+            console.log("PREV TYPE:", typeof pagination._links?.previous);
         } catch (e) {
             console.log(e)
         }
@@ -37,7 +47,7 @@ function Home() {
     }
     useEffect(() => {
         loadSpots()
-    }, []);
+    }, [query]);
 
     return (
         <>
@@ -51,6 +61,16 @@ function Home() {
                     type={item.type}
                 />
             ))}
+
+            {pagination && (
+
+                <Pagination
+                    newPage={handleNewPage}
+                    next={pagination._links?.next ?? null}
+                    previous={pagination._links?.previous ?? null}
+                />
+            )}
+
         </>
     );
 }
