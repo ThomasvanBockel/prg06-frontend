@@ -35,11 +35,7 @@ function Home() {
             }
             setItems(data.items);
             setPagination(data.pagination)
-            console.log(pagination._links?.next)
-            console.log(data)
 
-            console.log("NEXT TYPE:", typeof pagination._links?.next);
-            console.log("PREV TYPE:", typeof pagination._links?.previous);
         } catch (e) {
             console.log(e)
         }
