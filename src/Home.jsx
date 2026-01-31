@@ -51,6 +51,7 @@ function Home() {
 
     return (
         <>
+
             <Limit onLimitSubmit={handleLimitSubmit}/>
 
             {items.map((item) => (

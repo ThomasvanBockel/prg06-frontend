@@ -49,14 +49,22 @@ function PlantDetails() {
 
     return (
         <>
-            <h1>{item.name ?? "niks"}</h1>
-            <p>{item.description ?? "niks"}</p>
-            <p>{item.type ?? "geen type"}</p>
+            <div
+                className="flex flex-col items-center mt-5 border-black border border-solid text-center    text-black p-2">
 
-            <button onClick={handleDelete}>Delete</button>
+                <h1 className="text-gray-700 text-lg font-medium">{item.name ?? "niks"}</h1>
+                <p className="text-gray-500 mb-4">{item.description ?? "niks"}</p>
+                <p className="text-gray-500 mb-4">{item.type ?? "geen type"}</p>
+                <Link
+                    className="px-4 py-2 border-2 border-black rounded hover:bg-black hover:text-white transition mr-2"
+                    to={`/plants/edit/${item.id}`}>edit</Link>
 
-            <Link to={`/plants/edit/${item.id}`}>edit</Link>
+                <button
+                    className=" mt-2 px-4 py-2 border-2 border-red-600 text-red-600 rounded hover:bg-red-600 hover:text-white transition"
+                    onClick={handleDelete}>Delete
+                </button>
 
+            </div>
         </>
     );
 }

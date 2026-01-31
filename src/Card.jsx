@@ -4,12 +4,13 @@ function Card({id, name, type, description}) {
 
     return (
         <>
-            <li className="border-blue-600 border border-solid text-center w-2/5 flex-col bg-blue-100 text-black ">
+            <li className="border-black border border-solid text-center  flex-col  text-black p-2">
                 <h1>{name}</h1>
                 <p>{description ?? ""}</p>
                 <p>{type}</p>
 
-                <Link to={`/plants/${id}`}>Details</Link>
+                <Link className="bg-white border border-black text-black px-2 py-1 rounded"
+                      to={`/plants/${id}`}>Details</Link>
             </li>
         </>
     );

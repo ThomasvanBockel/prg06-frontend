@@ -41,41 +41,44 @@ function Create() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
+                <div className="flex flex-col mt-5">
+                    <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="name">Name:</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="border"
+                        className=" border-4 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+
                     />
                 </div>
 
-                <div>
-                    <label htmlFor="description">Description:</label>
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="description">Description:</label>
                     <textarea
                         id="description"
                         name="description"
                         value={formData.description}
                         onChange={handleInputChange}
 
-                        className="border"
+                        className="border-4 border-gray-300 rounded px-3 py-2 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-black"
                     />
                 </div>
-                <div>
-                    <label htmlFor="type">Type:</label>
+                <div className="flex flex-col">
+                    <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="type">Type:</label>
                     <input
                         type="text"
                         id="type"
                         name="type"
                         value={formData.type}
                         onChange={handleInputChange}
-                        className="border"
+                        className="border-4 border-gray-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-black"
                     />
                 </div>
-                <button type="submit">Verzenden</button>
+                <button className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+                        type="submit">Verzenden
+                </button>
             </form>
 
         </>
